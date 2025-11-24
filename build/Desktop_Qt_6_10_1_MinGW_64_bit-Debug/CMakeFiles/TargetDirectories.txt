@@ -1,0 +1,9 @@
+C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/hospital-management-cpp-gui.dir
+C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/install.dir
+C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/hospital-management-cpp-gui_autogen_timestamp_deps.dir
+C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/hospital-management-cpp-gui_autogen.dir
