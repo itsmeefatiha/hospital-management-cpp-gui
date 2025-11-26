@@ -1,0 +1,17 @@
+# ninja log v6
+222	721	7858825873383421	hospital-management-cpp-gui_autogen/timestamp	f54d7c818f3010ab
+222	721	7858825873383421	hospital-management-cpp-gui_autogen/mocs_compilation.cpp	f54d7c818f3010ab
+222	721	7858825873383421	C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/hospital-management-cpp-gui_autogen/timestamp	f54d7c818f3010ab
+222	721	7858825873383421	C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/hospital-management-cpp-gui_autogen/mocs_compilation.cpp	f54d7c818f3010ab
+1849	7897	7858111030321309	CMakeFiles/hospital-management-cpp-gui.dir/hospital-management-cpp-gui_autogen/mocs_compilation.cpp.obj	1013c8fd9b918eb2
+1853	7910	7858111030371929	CMakeFiles/hospital-management-cpp-gui.dir/main.cpp.obj	72f10da3a05b8279
+55	134	7858837640739049	CMakeFiles/clean.additional	baedbe210acaa455
+135	152	7858837641540896	clean	577b940aee94fbd7
+71	2130	7858837662937265	hospital-management-cpp-gui_autogen/timestamp	f54d7c818f3010ab
+71	2130	7858837662937265	hospital-management-cpp-gui_autogen/mocs_compilation.cpp	f54d7c818f3010ab
+71	2130	7858837662937265	C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/hospital-management-cpp-gui_autogen/timestamp	f54d7c818f3010ab
+71	2130	7858837662937265	C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/hospital-management-cpp-gui_autogen/mocs_compilation.cpp	f54d7c818f3010ab
+2133	11694	7858837664721626	CMakeFiles/hospital-management-cpp-gui.dir/hospital-management-cpp-gui_autogen/mocs_compilation.cpp.obj	93f7ca4743e82c9f
+2137	11722	7858837664762025	CMakeFiles/hospital-management-cpp-gui.dir/main.cpp.obj	ae7104610bb5ff6a
+2143	11757	7858837664831819	CMakeFiles/hospital-management-cpp-gui.dir/mainwindow.cpp.obj	7be8ca8b730008f0
+11757	13002	7858837760964656	hospital-management-cpp-gui.exe	46a50e379b2761a2
