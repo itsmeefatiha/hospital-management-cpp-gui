@@ -73,6 +73,22 @@ build CMakeFiles/hospital-management-cpp-gui.dir/mainwindow.cpp.obj: CXX_COMPILE
   OBJECT_DIR = CMakeFiles\hospital-management-cpp-gui.dir
   OBJECT_FILE_DIR = CMakeFiles\hospital-management-cpp-gui.dir
 
+build CMakeFiles/hospital-management-cpp-gui.dir/loginwindow.cpp.obj: CXX_COMPILER__hospital-management-cpp-gui_unscanned_Debug C$:/Users/pc/Documents/hospital-management-cpp-gui/loginwindow.cpp || cmake_object_order_depends_target_hospital-management-cpp-gui
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\hospital-management-cpp-gui.dir\loginwindow.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/hospital-management-cpp-gui_autogen/include -isystem C:/Qt/6.10.1/mingw_64/include/QtCore -isystem C:/Qt/6.10.1/mingw_64/include -isystem C:/Qt/6.10.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.10.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.10.1/mingw_64/include/QtGui -isystem C:/Qt/6.10.1/mingw_64/include/QtSql
+  OBJECT_DIR = CMakeFiles\hospital-management-cpp-gui.dir
+  OBJECT_FILE_DIR = CMakeFiles\hospital-management-cpp-gui.dir
+
+build CMakeFiles/hospital-management-cpp-gui.dir/database.cpp.obj: CXX_COMPILER__hospital-management-cpp-gui_unscanned_Debug C$:/Users/pc/Documents/hospital-management-cpp-gui/database.cpp || cmake_object_order_depends_target_hospital-management-cpp-gui
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\hospital-management-cpp-gui.dir\database.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/hospital-management-cpp-gui_autogen/include -isystem C:/Qt/6.10.1/mingw_64/include/QtCore -isystem C:/Qt/6.10.1/mingw_64/include -isystem C:/Qt/6.10.1/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.10.1/mingw_64/include/QtWidgets -isystem C:/Qt/6.10.1/mingw_64/include/QtGui -isystem C:/Qt/6.10.1/mingw_64/include/QtSql
+  OBJECT_DIR = CMakeFiles\hospital-management-cpp-gui.dir
+  OBJECT_FILE_DIR = CMakeFiles\hospital-management-cpp-gui.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target hospital-management-cpp-gui
@@ -81,7 +97,7 @@ build CMakeFiles/hospital-management-cpp-gui.dir/mainwindow.cpp.obj: CXX_COMPILE
 #############################################
 # Link the executable hospital-management-cpp-gui.exe
 
-build hospital-management-cpp-gui.exe: CXX_EXECUTABLE_LINKER__hospital-management-cpp-gui_Debug CMakeFiles/hospital-management-cpp-gui.dir/hospital-management-cpp-gui_autogen/mocs_compilation.cpp.obj CMakeFiles/hospital-management-cpp-gui.dir/main.cpp.obj CMakeFiles/hospital-management-cpp-gui.dir/mainwindow.cpp.obj | C$:/Qt/6.10.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Sql.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Core.a C$:/Qt/6.10.1/mingw_64/lib/libQt6EntryPoint.a || hospital-management-cpp-gui_autogen hospital-management-cpp-gui_autogen_timestamp_deps
+build hospital-management-cpp-gui.exe: CXX_EXECUTABLE_LINKER__hospital-management-cpp-gui_Debug CMakeFiles/hospital-management-cpp-gui.dir/hospital-management-cpp-gui_autogen/mocs_compilation.cpp.obj CMakeFiles/hospital-management-cpp-gui.dir/main.cpp.obj CMakeFiles/hospital-management-cpp-gui.dir/mainwindow.cpp.obj CMakeFiles/hospital-management-cpp-gui.dir/loginwindow.cpp.obj CMakeFiles/hospital-management-cpp-gui.dir/database.cpp.obj | C$:/Qt/6.10.1/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Sql.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Gui.a C$:/Qt/6.10.1/mingw_64/lib/libQt6Core.a C$:/Qt/6.10.1/mingw_64/lib/libQt6EntryPoint.a || hospital-management-cpp-gui_autogen hospital-management-cpp-gui_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = C:/Qt/6.10.1/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.10.1/mingw_64/lib/libQt6Sql.a  C:/Qt/6.10.1/mingw_64/lib/libQt6Gui.a  -ld3d11  -ldxgi  -ldxguid  -ld3d12  C:/Qt/6.10.1/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt/6.10.1/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -168,7 +184,7 @@ build hospital-management-cpp-gui_autogen_timestamp_deps: phony
 #############################################
 # Utility command for hospital-management-cpp-gui_autogen
 
-build hospital-management-cpp-gui_autogen: phony CMakeFiles/hospital-management-cpp-gui_autogen hospital-management-cpp-gui_autogen/include/ui_mainwindow.h hospital-management-cpp-gui_autogen/timestamp hospital-management-cpp-gui_autogen/mocs_compilation.cpp hospital-management-cpp-gui_autogen_timestamp_deps
+build hospital-management-cpp-gui_autogen: phony CMakeFiles/hospital-management-cpp-gui_autogen hospital-management-cpp-gui_autogen/include/ui_mainwindow.h hospital-management-cpp-gui_autogen/include/ui_loginwindow.h hospital-management-cpp-gui_autogen/timestamp hospital-management-cpp-gui_autogen/mocs_compilation.cpp hospital-management-cpp-gui_autogen_timestamp_deps
 
 
 #############################################
@@ -185,7 +201,7 @@ build hospital-management-cpp-gui_autogen/timestamp hospital-management-cpp-gui_
 #############################################
 # Phony custom command for CMakeFiles\hospital-management-cpp-gui_autogen
 
-build CMakeFiles/hospital-management-cpp-gui_autogen hospital-management-cpp-gui_autogen/include/ui_mainwindow.h | ${cmake_ninja_workdir}CMakeFiles/hospital-management-cpp-gui_autogen ${cmake_ninja_workdir}hospital-management-cpp-gui_autogen/include/ui_mainwindow.h: phony hospital-management-cpp-gui_autogen/timestamp || hospital-management-cpp-gui_autogen_timestamp_deps
+build CMakeFiles/hospital-management-cpp-gui_autogen hospital-management-cpp-gui_autogen/include/ui_mainwindow.h hospital-management-cpp-gui_autogen/include/ui_loginwindow.h | ${cmake_ninja_workdir}CMakeFiles/hospital-management-cpp-gui_autogen ${cmake_ninja_workdir}hospital-management-cpp-gui_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}hospital-management-cpp-gui_autogen/include/ui_loginwindow.h: phony hospital-management-cpp-gui_autogen/timestamp || hospital-management-cpp-gui_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.

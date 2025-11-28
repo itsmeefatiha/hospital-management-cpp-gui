@@ -356,6 +356,18 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/pc/Documents/hospital-management-cpp-gui/database.h",
+			"MU",
+			"EWIEGA46WW/moc_database.cpp",
+			null
+		],
+		[
+			"C:/Users/pc/Documents/hospital-management-cpp-gui/loginwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_loginwindow.cpp",
+			null
+		],
+		[
 			"C:/Users/pc/Documents/hospital-management-cpp-gui/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -435,6 +447,16 @@
 	"SETTINGS_FILE" : "C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/hospital-management-cpp-gui_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"C:/Users/pc/Documents/hospital-management-cpp-gui/database.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/pc/Documents/hospital-management-cpp-gui/loginwindow.cpp",
+			"MU",
+			null
+		],
 		[
 			"C:/Users/pc/Documents/hospital-management-cpp-gui/main.cpp",
 			"MU",
