@@ -591,8 +591,13 @@ hospital-management-cpp-gui_autogen/timestamp: \
 	C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
 	C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	C:/Users/pc/Documents/hospital-management-cpp-gui/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug/hospital-management-cpp-gui_autogen/moc_predefs.h \
+	C:/Users/pc/Documents/hospital-management-cpp-gui/database.cpp \
+	C:/Users/pc/Documents/hospital-management-cpp-gui/database.h \
+	C:/Users/pc/Documents/hospital-management-cpp-gui/loginwindow.cpp \
+	C:/Users/pc/Documents/hospital-management-cpp-gui/loginwindow.h \
 	C:/Users/pc/Documents/hospital-management-cpp-gui/main.cpp \
 	C:/Users/pc/Documents/hospital-management-cpp-gui/mainwindow.cpp \
 	C:/Users/pc/Documents/hospital-management-cpp-gui/mainwindow.h \
+	C:/Users/pc/Documents/hospital-management-cpp-gui/loginwindow.ui \
 	C:/Users/pc/Documents/hospital-management-cpp-gui/mainwindow.ui \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

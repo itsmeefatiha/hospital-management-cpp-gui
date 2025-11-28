@@ -26,6 +26,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(hospital-management-cpp-gui
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        loginwindow.h loginwindow.cpp loginwindow.ui
+        database.h database.cpp
     )
 else()
     if(ANDROID)
