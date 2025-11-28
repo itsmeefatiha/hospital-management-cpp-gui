@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PatientDashboard</class>
+ <widget class="QWidget" name="PatientDashboard">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>1050</width><height>650</height></rect>
+  </property>
+  <property name="windowTitle"><string>Espace Patient</string></property>
+  <property name="styleSheet">
+   <string notr="true">
+QWidget { background: #f7fafd; font-family:'Segoe UI', Arial, sans-serif; color:#1a202c; }
+QFrame#sideBar { background:#23b1e9; border-radius:18px; }
+QPushButton.sidebarBtn { background:transparent; border:none; color:#e3eafc; font-size:15px; font-weight:600; text-align:left; padding:13px 15px; border-radius:6px; margin-top:2px; margin-bottom:2px; }
+QPushButton.sidebarBtn:hover { background:#189dcf; color:#fff; }
+QLabel.ptDashTitle {font-size:17px;color:#23b1e9;font-weight:600;margin-bottom:8px;margin-top:12px;}
+QFrame[card="true"] { background: white; border-radius:11px; box-shadow: 0 1px 8px #1aaad911; padding:14px 18px; }
+QLabel.cardLabel {font-size:13px;color:#7b8994; font-weight:400;}
+QLabel.cardValue {font-size:15px;color:#1884ab; font-weight:500;}
+QHeaderView::section { background-color:#23b1e9;color:white; border:none; font-weight:500;padding:7px;border-radius:0;}
+QTableWidget { background:white; border-radius:6px; font-size:14px; gridline-color:#e3eafc; }
+QTableWidget::item:selected { background:#edfaff; color:#1a202c;}
+QTableCornerButton::section { background: #23b1e9; }
+   </string>
+  </property>
+  <layout class="QHBoxLayout" name="mainLayout" stretch="0,1">
+   <item>
+    <widget class="QFrame" name="sideBar">
+     <property name="minimumWidth"><number>75</number></property>
+     <property name="maximumWidth"><number>100</number></property>
+     <property name="objectName"><string>sideBar</string></property>
+     <property name="frameShape"><enum>QFrame::StyledPanel</enum></property>
+     <layout class="QVBoxLayout" name="sideBarLayout">
+      <item><widget class="QPushButton" name="btnHome"><property name="text"><string>🏠</string></property><property name="toolTip"><string>Accueil</string></property><property name="objectName"><cstring>sidebarBtn</cstring></property></widget></item>
+      <item><widget class="QPushButton" name="btnRdv"><property name="text"><string>📆</string></property><property name="toolTip"><string>Mes rendez-vous</string></property><property name="objectName"><cstring>sidebarBtn</cstring></property></widget></item>
+      <item><widget class="QPushButton" name="btnDossier"><property name="text"><string>📋</string></property><property name="toolTip"><string>Mon dossier</string></property><property name="objectName"><cstring>sidebarBtn</cstring></property></widget></item>
+      <item><widget class="QPushButton" name="btnOrdonnances"><property name="text"><string>💊</string></property><property name="toolTip"><string>Ordonnances</string></property><property name="objectName"><cstring>sidebarBtn</cstring></property></widget></item>
+      <item><spacer name="sidebarSpacerTop"/></item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="centralArea">
+     <layout class="QVBoxLayout" name="centralLayout">
+      <item><widget class="QLabel" name="lblPtDashTitle"><property name="text"><string>Mon Portail Patient</string></property><property name="objectName"><cstring>ptDashTitle</cstring></property></widget></item>
+      <item>
+       <layout class="QHBoxLayout" name="cardLayoutRow">
+        <item><widget class="QFrame" name="cardNextRdv"><layout class="QVBoxLayout" name="vboxCard1"><item><widget class="QLabel" name="lblNextRdv"><property name="text"><string>Prochain rendez-vous</string></property><property name="objectName"><cstring>cardLabel</cstring></property></widget></item><item><widget class="QLabel" name="valNextRdv"><property name="text"><string>15 juin, 10h30</string></property><property name="objectName"><cstring>cardValue</cstring></property></widget></item></layout></widget></item>
+        <item><widget class="QFrame" name="cardNotif"><layout class="QVBoxLayout" name="vboxCard2"><item><widget class="QLabel" name="lblNotif"><property name="text"><string>Notifications</string></property><property name="objectName"><cstring>cardLabel</cstring></property></widget></item><item><widget class="QLabel" name="valNotif"><property name="text"><string>Vous avez 2 nouveaux comptes-rendus</string></property><property name="objectName"><cstring>cardValue</cstring></property></widget></item></layout></widget></item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QTableWidget" name="tableSynthese">
+        <property name="columnCount"><number>4</number></property>
+        <property name="rowCount"><number>0</number></property>
+        <column><property name="text"><string>Date</string></property></column>
+        <column><property name="text"><string>Service</string></property></column>
+        <column><property name="text"><string>Médecin</string></property></column>
+        <column><property name="text"><string>Statut</string></property></column>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
