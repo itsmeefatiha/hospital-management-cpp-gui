@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PagePatients</class>
+ <widget class="QWidget" name="PagePatients">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Gestion Patients</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* --- STYLE LOCAL --- */
+QWidget { 
+    font-family: &quot;Segoe UI&quot;, sans-serif; 
+    background-color: #f0f2f5; 
+}
+
+/* Cadres */
+QGroupBox { 
+    font-weight: bold; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    margin-top: 20px; 
+    background-color: white; 
+    color: #333333; 
+}
+QGroupBox::title { 
+    subcontrol-origin: margin; 
+    left: 10px; 
+    padding: 0 5px; 
+    color: #333333; 
+}
+
+/* Labels */
+QLabel {
+    color: #333333; 
+    font-size: 14px;
+}
+
+/* --- CHAMPS DE SAISIE (Texte &amp; Date) --- */
+QLineEdit, QDateEdit { 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    padding: 6px; 
+    background-color: #fafafa; 
+    min-height: 25px;
+    color: #333333; /* Texte NOIR */
+}
+
+QLineEdit:focus, QDateEdit:focus { 
+    border: 1px solid #2d7aed; 
+    background-color: white; 
+}
+
+/* Flèche du calendrier */
+QDateEdit::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 25px;
+    border-left-width: 1px;
+    border-left-color: #ccc;
+    border-left-style: solid; 
+}
+
+/* --- LISTE --- */
+QListWidget { 
+    border: 1px solid #ccc; 
+    background: white; 
+    border-radius: 4px; 
+    color: #333333;
+    padding: 5px;
+}
+QListWidget::item:selected {
+    background-color: #2d7aed;
+    color: white;
+}
+QListWidget::item:hover {
+    background-color: #f5f7fa;
+    color: #2d7aed;
+}
+
+/* --- BOUTONS --- */
+QPushButton.ActionBtn { 
+    background-color: #2d7aed; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 8px 16px; 
+    font-weight: bold; 
+}
+QPushButton.ActionBtn:hover { background-color: #1a5fc7; }
+
+QPushButton.SecondaryBtn { 
+    background-color: #6c757d; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 8px 16px; 
+}
+QPushButton.SecondaryBtn:hover { background-color: #5a6268; }
+</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_main">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_search">
+     <item>
+      <widget class="QGroupBox" name="groupBox_search">
+       <property name="title">
+        <string>Recherche Annuaire</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_search">
+        <item>
+         <widget class="QLineEdit" name="lineEdit_search">
+          <property name="placeholderText">
+           <string>Nom ou ID Patient...</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_search">
+          <property name="class" stdset="0">
+           <string>ActionBtn</string>
+          </property>
+          <property name="text">
+           <string>🔍</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QListWidget" name="listWidget_patients"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_details">
+     <property name="title">
+      <string>Fiche Patient</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <property name="verticalSpacing">
+       <number>15</number>
+      </property>
+      <property name="topMargin">
+       <number>20</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="lbl_nom">
+        <property name="text">
+         <string>Nom :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit_nom"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lbl_prenom">
+        <property name="text">
+         <string>Prénom :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="lineEdit_prenom"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lbl_dob">
+        <property name="text">
+         <string>Date Naissance :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QDateEdit" name="dateEdit_dob">
+        <property name="displayFormat">
+         <string>dd/MM/yyyy</string>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="lbl_tel">
+        <property name="text">
+         <string>Téléphone :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="lineEdit_tel"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="lbl_addr">
+        <property name="text">
+         <string>Adresse :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLineEdit" name="lineEdit_addr"/>
+      </item>
+      <item row="5" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout_actions">
+        <item>
+         <widget class="QPushButton" name="btn_new">
+          <property name="class" stdset="0">
+           <string>SecondaryBtn</string>
+          </property>
+          <property name="text">
+           <string>Nouveau</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_save">
+          <property name="class" stdset="0">
+           <string>ActionBtn</string>
+          </property>
+          <property name="text">
+           <string>Enregistrer</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

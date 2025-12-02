@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PageRooms</class>
+ <widget class="QWidget" name="PageRooms">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* --- STYLE LOCAL --- */
+QWidget { 
+    font-family: &quot;Segoe UI&quot;, sans-serif; 
+    background-color: #f0f2f5; 
+}
+
+QFrame.Card { 
+    background-color: white; 
+    border-radius: 8px; 
+    border: 1px solid #e0e0e0; 
+}
+
+QLabel {
+    color: #333333; 
+}
+
+/* Champs de texte */
+QLineEdit { 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    padding: 6px; 
+    background-color: #fafafa;
+    color: #333333; 
+}
+QLineEdit:focus { 
+    border: 1px solid #2d7aed; 
+    background-color: white;
+}
+
+/* LISTE DÉROULANTE (CORRIGÉ) */
+QComboBox {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px;
+    background-color: #fafafa;
+    color: #333333;
+}
+QComboBox:focus {
+    border: 1px solid #2d7aed;
+    background-color: white;
+}
+QComboBox QAbstractItemView {
+    background-color: white;
+    color: #333333;
+    selection-background-color: #2d7aed;
+    selection-color: white;
+    outline: 0;
+}
+
+/* Boutons */
+QPushButton.ActionBtn { 
+    background-color: #2d7aed; 
+    color: white; 
+    border-radius: 4px; 
+    padding: 6px 15px; 
+    font-weight: bold; 
+    border: none;
+}
+QPushButton.ActionBtn:hover { 
+    background-color: #1a5fc7; 
+}
+
+/* Tableau */
+QTableWidget { 
+    background-color: white; 
+    border: none;
+    gridline-color: #f0f0f0;
+    selection-background-color: #e6f0ff;
+    selection-color: #2d7aed;
+    color: #333333;
+}
+QHeaderView::section {
+    background-color: #f8f9fa;
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid #2d7aed;
+    font-weight: bold;
+    color: #333333;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QFrame" name="frame_add_room">
+     <property name="class" stdset="0">
+      <string>Card</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_add">
+      <item>
+       <widget class="QLineEdit" name="lineEdit_room_num">
+        <property name="placeholderText">
+         <string>Numéro de Chambre (ex: 101)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="combo_type">
+        <item>
+         <property name="text">
+          <string>Simple</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Double</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Soins Intensifs</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_floor">
+        <property name="placeholderText">
+         <string>Étage</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_add_room">
+        <property name="class" stdset="0">
+         <string>ActionBtn</string>
+        </property>
+        <property name="text">
+         <string>Ajouter</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="frame_list">
+     <property name="class" stdset="0">
+      <string>Card</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_list">
+      <item>
+       <widget class="QLabel" name="label_title">
+        <property name="text">
+         <string>État des Chambres</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 16px; font-weight: bold;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTableWidget" name="tableRooms">
+        <property name="alternatingRowColors">
+         <bool>true</bool>
+        </property>
+        <column>
+         <property name="text">
+          <string>Numéro</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Type</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Étage</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Statut</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

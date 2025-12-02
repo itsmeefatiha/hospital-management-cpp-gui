@@ -1,0 +1,20 @@
+# Qt build folders
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+*.obj
+*.o
+*.exe
+*.dll
+*.log
+*.user
+*.user.*
+*.moc
+*.qrc
+.ui_.h
+Makefile*
+
+# Fichiers temporaires système
+.DS_Store
+Thumbs.db
