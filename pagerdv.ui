@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PageRDV</class>
+ <widget class="QWidget" name="PageRDV">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Prise de Rendez-vous</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* --- STYLE LOCAL --- */
+QWidget { 
+    font-family: &quot;Segoe UI&quot;, sans-serif; 
+    background-color: #f0f2f5; 
+}
+
+/* Groupes */
+QGroupBox { 
+    font-weight: bold; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    margin-top: 20px; 
+    background-color: white; 
+    color: #333333; 
+}
+QGroupBox::title { 
+    subcontrol-origin: margin; 
+    left: 10px; 
+    padding: 0 5px; 
+    color: #333333; 
+}
+
+/* Labels */
+QLabel {
+    color: #333333;
+    font-size: 14px;
+}
+
+/* --- FIX VISIBILITÉ CHAMPS --- */
+QLineEdit, QComboBox, QDateTimeEdit { 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    padding: 6px; 
+    background-color: #fafafa; 
+    min-height: 25px;
+    color: #333333; /* Texte noir important */
+}
+
+QLineEdit:focus, QComboBox:focus, QDateTimeEdit:focus { 
+    border: 1px solid #2d7aed; 
+    background-color: white; 
+}
+
+/* Liste Déroulante */
+QComboBox QAbstractItemView {
+    background-color: white;
+    color: #333333;
+    selection-background-color: #2d7aed;
+    selection-color: white;
+    outline: 0;
+}
+
+/* Boutons */
+QPushButton.ActionBtn { 
+    background-color: #2d7aed; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 8px 16px; 
+    font-weight: bold; 
+}
+QPushButton.ActionBtn:hover { background-color: #1a5fc7; }
+
+/* Tableau */
+QTableWidget { 
+    background-color: white; 
+    border: none; 
+    gridline-color: #f0f0f0;
+    color: #333333; 
+}
+QHeaderView::section {
+    background-color: #f8f9fa;
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid #2d7aed;
+    font-weight: bold;
+    color: #333333;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_main">
+   <item>
+    <widget class="QGroupBox" name="groupBox_new_rdv">
+     <property name="title">
+      <string>Nouvelle Réservation</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <property name="verticalSpacing">
+       <number>15</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="lbl_patient">
+        <property name="text">
+         <string>Patient :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="lineEdit_patient_search">
+        <property name="placeholderText">
+         <string>Rechercher un patient...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="lbl_service">
+        <property name="text">
+         <string>Service :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QComboBox" name="combo_service">
+        </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lbl_doctor">
+        <property name="text">
+         <string>Médecin :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="combo_doctor"/>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="lbl_date">
+        <property name="text">
+         <string>Date &amp; Heure :</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QDateTimeEdit" name="dateTimeEdit_rdv">
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QPushButton" name="btn_confirm">
+        <property name="class" stdset="0">
+         <string>ActionBtn</string>
+        </property>
+        <property name="text">
+         <string>Confirmer le Rendez-vous</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_list">
+     <property name="title">
+      <string>Rendez-vous à venir</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_table">
+      <item>
+       <widget class="QTableWidget" name="table_rdv">
+        <property name="alternatingRowColors">
+         <bool>true</bool>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectRows</enum>
+        </property>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Date</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Patient</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Médecin</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Action</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

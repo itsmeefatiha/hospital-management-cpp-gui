@@ -12,8 +12,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # ----------------------------------------------------------------------
 # FIX 1: Add 'Sql' to the required components here
 # ----------------------------------------------------------------------
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql PrintSupport)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql PrintSupport)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -40,6 +40,19 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         loginwindow.h loginwindow.cpp loginwindow.ui
         database.h database.cpp
+        pagepatients.h pagepatients.cpp pagepatients.ui
+        pagerdv.h pagerdv.cpp pagerdv.ui
+        pageadmissions.h pageadmissions.cpp pageadmissions.ui
+        pagepatientsearch.h pagepatientsearch.cpp pagepatientsearch.ui
+        pagemedicalrecord.h pagemedicalrecord.cpp pagemedicalrecord.ui
+        pageusers.h pageusers.cpp pageusers.ui
+        pageservices.h pageservices.cpp pageservices.ui
+        pagerooms.h pagerooms.cpp pagerooms.ui
+        pagepatientappointments.h pagepatientappointments.cpp pagepatientappointments.ui
+        pagepatientrecord.h pagepatientrecord.cpp pagepatientrecord.ui
+
+        pagepatientprescriptions.h pagepatientprescriptions.cpp pagepatientprescriptions.ui
+        resources.qrc
     )
 else()
     if(ANDROID)
@@ -59,6 +72,7 @@ endif()
 target_link_libraries(hospital-management-cpp-gui PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Sql
+    Qt${QT_VERSION_MAJOR}::PrintSupport
 )
 
 # Qt for iOS setup (standard boilerplate)

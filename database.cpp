@@ -11,7 +11,7 @@ QSqlDatabase Database::connect()
     db.setPort(5432);                  // port PostgreSQL
     db.setDatabaseName("hospital_db");
     db.setUserName("postgres");
-    db.setPassword("fatiha");
+    db.setPassword("admin");
 
     if (!db.open()) {
         qDebug() << "Erreur connexion DB:" << db.lastError().text();

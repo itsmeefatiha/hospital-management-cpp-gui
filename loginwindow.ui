@@ -92,9 +92,11 @@ QLineEdit {
     padding: 10px;
     font-size: 14px;
     background-color: #f9f9f9;
+    color: #333333; /* Couleur texte noire */
 }
 QLineEdit:focus {
     border: 2px solid #2d7aed;
+    background-color: #ffffff;
 }
 QPushButton {
     background-color: #2d7aed;
@@ -187,7 +189,7 @@ QPushButton:pressed {
        <item>
         <widget class="QLineEdit" name="lineEdit_email">
          <property name="placeholderText">
-          <string>Adresse Email</string>
+          <string>Login</string>
          </property>
         </widget>
        </item>

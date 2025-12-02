@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PageServices</class>
+ <widget class="QWidget" name="PageServices">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* --- STYLE LOCAL --- */
+QWidget { 
+    font-family: &quot;Segoe UI&quot;, sans-serif; 
+    background-color: #f0f2f5; 
+}
+
+/* Cadres Blancs */
+QFrame.Card { 
+    background-color: white; 
+    border-radius: 8px; 
+    border: 1px solid #e0e0e0; 
+}
+
+/* --- CORRECTION TEXTE INVISIBLE --- */
+QLabel {
+    color: #333333; /* Force le texte en noir */
+}
+
+QListWidget { 
+    border: 1px solid #eee; 
+    padding: 5px; 
+    background-color: white;
+    color: #333333; /* Texte des items en noir */
+    font-size: 14px;
+}
+
+/* Style de l'élément sélectionné dans la liste */
+QListWidget::item:selected {
+    background-color: #2d7aed;
+    color: white;
+    border-radius: 4px;
+}
+
+QListWidget::item:hover {
+    background-color: #f5f7fa;
+    color: #2d7aed;
+}
+
+/* Boutons */
+QPushButton.ActionBtn { 
+    background-color: #2d7aed; 
+    color: white; 
+    border-radius: 4px; 
+    padding: 6px; 
+    font-weight: bold; 
+    border: none;
+}
+QPushButton.ActionBtn:hover { 
+    background-color: #1a5fc7; 
+}
+</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QFrame" name="frame_services_list">
+     <property name="maximumSize">
+      <size>
+       <width>300</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="class" stdset="0">
+      <string>Card</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_list">
+      <item>
+       <widget class="QLabel" name="lbl_services">
+        <property name="text">
+         <string>Départements</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 16px; font-weight: bold;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="listWidget_services">
+        <item>
+         <property name="text">
+          <string>Cardiologie</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Pédiatrie</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Urgence</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_add_service">
+        <property name="class" stdset="0">
+         <string>ActionBtn</string>
+        </property>
+        <property name="text">
+         <string>+ Nouveau Service</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="frame_details">
+     <property name="class" stdset="0">
+      <string>Card</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_details">
+      <item>
+       <widget class="QLabel" name="lbl_details_title">
+        <property name="text">
+         <string>Détails du Service</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-size: 16px; font-weight: bold;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lbl_meds_assigned">
+        <property name="text">
+         <string>Médecins affectés :</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="listWidget_assigned_docs"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_assign_doc">
+        <property name="class" stdset="0">
+         <string>ActionBtn</string>
+        </property>
+        <property name="text">
+         <string>Affecter un médecin</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

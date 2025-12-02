@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PagePatientAppointments</class>
+ <widget class="QWidget" name="PagePatientAppointments">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* --- STYLE LOCAL --- */
+QWidget { 
+    font-family: &quot;Segoe UI&quot;, sans-serif; 
+    background-color: #f0f2f5; 
+}
+
+QFrame.Card { 
+    background-color: white; 
+    border-radius: 8px; 
+    border: 1px solid #e0e0e0; 
+}
+
+/* Texte */
+QLabel {
+    color: #333333;
+}
+
+/* Tableau */
+QTableWidget { 
+    background-color: white; 
+    border: none; 
+    color: #333333; /* Texte Noir */
+    gridline-color: #f0f0f0;
+    selection-background-color: #e6f0ff;
+    selection-color: #2d7aed;
+}
+
+QHeaderView::section {
+    background-color: #f8f9fa;
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid #2d7aed;
+    font-weight: bold;
+    color: #333333; /* Titres Noir */
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="leftMargin">
+    <number>30</number>
+   </property>
+   <property name="topMargin">
+    <number>30</number>
+   </property>
+   <property name="rightMargin">
+    <number>30</number>
+   </property>
+   
+   <item>
+    <widget class="QLabel" name="label_title">
+     <property name="styleSheet">
+      <string notr="true">font-size: 22px; font-weight: bold; color: #333; margin-bottom: 10px;</string>
+     </property>
+     <property name="text">
+      <string>Mes Rendez-vous</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="frame_list">
+     <property name="class" stdset="0">
+      <string>Card</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_list">
+      <item>
+       <widget class="QTableWidget" name="tableAppointments">
+        <property name="alternatingRowColors">
+         <bool>true</bool>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectRows</enum>
+        </property>
+        <column>
+         <property name="text">
+          <string>Date &amp; Heure</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Médecin</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Service</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Statut</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

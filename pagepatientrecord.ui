@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PagePatientRecord</class>
+ <widget class="QWidget" name="PagePatientRecord">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* --- STYLE LOCAL --- */
+QWidget { 
+    font-family: &quot;Segoe UI&quot;, sans-serif; 
+    background-color: #f0f2f5; 
+}
+
+QFrame.Card { 
+    background-color: white; 
+    border-radius: 8px; 
+    border: 1px solid #e0e0e0; 
+}
+
+QLabel {
+    color: #333333;
+}
+
+/* Liste de gauche */
+QListWidget { 
+    border: none; 
+    background-color: white;
+    color: #333333; /* Texte Noir */
+    font-size: 14px;
+}
+QListWidget::item { padding: 5px; }
+QListWidget::item:selected {
+    background-color: #2d7aed;
+    color: white;
+    border-radius: 4px;
+}
+QListWidget::item:hover {
+    background-color: #f5f7fa;
+    color: #2d7aed;
+}
+
+/* Zone de lecture (droite) */
+QTextEdit { 
+    border: none; 
+    background-color: white;
+    color: #333333; /* Texte Noir */
+}
+</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="leftMargin">
+    <number>20</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
+   
+   <item>
+    <widget class="QFrame" name="frame_list">
+     <property name="maximumSize">
+      <size>
+       <width>250</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="class" stdset="0">
+      <string>Card</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_list">
+      <item>
+       <widget class="QLabel" name="lbl_reports">
+        <property name="text">
+         <string>Comptes-rendus</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-weight: bold; font-size: 14px;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="listWidget_reports"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   
+   <item>
+    <widget class="QFrame" name="frame_content">
+     <property name="class" stdset="0">
+      <string>Card</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_content">
+      <item>
+       <widget class="QLabel" name="lbl_content_title">
+        <property name="text">
+         <string>Détail du document</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font-weight: bold; font-size: 16px; color: #2d7aed;</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="textEdit_report_view">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="placeholderText">
+         <string>Sélectionnez un document à gauche pour voir le contenu...</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

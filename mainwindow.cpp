@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "admindashboard.h" // <-- à ajouter
+#include "admindashboard.h"
+#include "doctordashboard.h"
+#include "receptiondashboard.h"
 
 #include <QSqlDatabase>
 
@@ -11,10 +13,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    AdminDashboard *dashboard = new AdminDashboard(this);
+    ReceptionDashboard *dashboard = new ReceptionDashboard(this);
     setCentralWidget(dashboard);
 
-    qDebug() << QSqlDatabase::drivers();
+    //qDebug() << QSqlDatabase::drivers();
 
 }
 
