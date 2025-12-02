@@ -1,10 +1,11 @@
 #include "loginwindow.h"
 #include "ui_loginwindow.h"
-#include "database.h"  // Votre classe de connexion
+#include "database.h"
 #include <QMessageBox>
-#include <QSqlQuery>   // Pour exécuter les requêtes SQL
+#include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
+#include <QPixmap> // <--- 1. IMPORTANT : Inclure QPixmap
 #include "admindashboard.h"
 #include "receptiondashboard.h"
 #include "doctordashboard.h"
@@ -15,6 +16,20 @@ LoginWindow::LoginWindow(QWidget *parent)
     , ui(new Ui::LoginWindow)
 {
     ui->setupUi(this);
+
+    // --- 2. CODE AJOUTÉ POUR L'IMAGE ---
+    // Assurez-vous que le dossier "resources" est bien dans le dossier de compilation (build)
+    // Ou utilisez un fichier de ressources Qt (.qrc) et le chemin ":/resources/hospital_bg.png"
+    QPixmap pix(":/resources/hospital_bg.png");
+
+    // Vérification optionnelle pour voir si l'image est bien chargée
+    if (!pix.isNull()) {
+        ui->label_image->setPixmap(pix);
+        ui->label_image->setScaledContents(true); // Pour que l'image s'adapte à la taille du label
+    } else {
+        qDebug() << "Erreur : Impossible de trouver l'image 'resources/hospital_bg.png'";
+    }
+    // -----------------------------------
 
     // On tente de connecter la BDD dès le démarrage de la fenêtre
     Database::connect();
@@ -27,7 +42,7 @@ LoginWindow::~LoginWindow()
 
 void LoginWindow::on_btn_login_clicked()
 {
-    QString login = ui->lineEdit_email->text(); // On utilise ce champ comme "Login"
+    QString login = ui->lineEdit_email->text();
     QString password = ui->lineEdit_password->text();
 
     if (login.isEmpty() || password.isEmpty()) {
@@ -35,22 +50,17 @@ void LoginWindow::on_btn_login_clicked()
         return;
     }
 
-    // 1. Préparation de la requête
     QSqlQuery query;
-    // On cherche le rôle correspondant au login ET mot de passe
     query.prepare("SELECT role, id_user FROM utilisateurs WHERE login = :login AND mot_de_passe = :pass");
     query.bindValue(":login", login);
     query.bindValue(":pass", password);
 
-    // 2. Exécution
     if (query.exec()) {
         if (query.next()) {
-            // --- Connexion Réussie ---
-            QString role = query.value(0).toString(); // On récupère la colonne "role"
+            QString role = query.value(0).toString();
             int userId = query.value(1).toInt();
             qDebug() << "Utilisateur connecté avec le rôle :" << role;
 
-            // 3. Redirection selon le rôle
             if (role == "ADMIN") {
                 AdminDashboard *w = new AdminDashboard();
                 w->show();
@@ -67,7 +77,6 @@ void LoginWindow::on_btn_login_clicked()
                 this->close();
             }
             else if (role == "PATIENT") {
-                // On passe l'ID au constructeur
                 PatientDashboard *w = new PatientDashboard(userId);
                 w->show();
                 this->close();
@@ -77,12 +86,10 @@ void LoginWindow::on_btn_login_clicked()
             }
         }
         else {
-            // --- Échec (Pas de résultat) ---
             QMessageBox::warning(this, "Erreur", "Identifiant ou mot de passe incorrect.");
         }
     }
     else {
-        // --- Erreur technique SQL ---
         QMessageBox::critical(this, "Erreur BDD", query.lastError().text());
     }
 }
