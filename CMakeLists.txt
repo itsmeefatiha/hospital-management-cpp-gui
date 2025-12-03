@@ -53,6 +53,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 
         pagepatientprescriptions.h pagepatientprescriptions.cpp pagepatientprescriptions.ui
         resources.qrc
+
     )
 else()
     if(ANDROID)
