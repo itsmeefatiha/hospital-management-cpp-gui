@@ -5,12 +5,40 @@
 #include <QSqlError>
 #include <QDebug>
 #include <QDateTime>
+#include <QPixmap>
+#include <QDir> // <--- Ajout pour le diagnostic de chemin
+#include <QFile> // <--- Ajout pour vérifier l'existence du fichier
 
 AdminDashboard::AdminDashboard(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::AdminDashboard)
 {
     ui->setupUi(this);
+
+    // --- DIAGNOSTIC DE CHEMIN D'IMAGE ---
+    QString imagePath = ":/resources/medicine.png";
+    qDebug() << "--- DIAGNOSTIC IMAGE ---";
+    qDebug() << "Dossier d'exécution de l'app :" << QDir::currentPath();
+    qDebug() << "Chemin complet attendu :" << QDir::current().absoluteFilePath(imagePath);
+
+    if (!QFile::exists(imagePath)) {
+        qDebug() << "ERREUR CRITIQUE : Le fichier n'existe pas à cet emplacement !";
+        qDebug() << "SOLUTION : Copiez le dossier 'resources' dans le dossier 'build-...'";
+    }
+    // ------------------------------------
+
+    // --- 2. AJOUT DU LOGO DANS LA SIDEBAR ---
+    QPixmap logo(imagePath);
+
+    if (!logo.isNull()) {
+        ui->label_app_name->setPixmap(logo.scaledToWidth(50, Qt::SmoothTransformation));
+        ui->label_app_name->setAlignment(Qt::AlignCenter);
+    } else {
+        // Fallback
+        qDebug() << "Erreur : Chargement de l'image échoué.";
+        ui->label_app_name->setText("Hôpital Manager");
+    }
+    // ----------------------------------------
 
     // Initialisation des pages
     pageUsers = new PageUsers();
@@ -103,27 +131,28 @@ void AdminDashboard::loadRecentActivity()
     }
 }
 
-// --- Navigation (Rien à changer ici, gardez votre code existant) ---
+// --- Navigation ---
 void AdminDashboard::on_btn_menu_dashboard_clicked() {
     ui->stackedWidget->setCurrentIndex(0);
-    refreshStats(); // Rafraichir quand on revient sur l'accueil
+    refreshStats();
     ui->btn_menu_dashboard->setChecked(true); ui->btn_menu_users->setChecked(false);
     ui->btn_menu_services->setChecked(false); ui->btn_menu_rooms->setChecked(false);
 }
-// ... (Gardez les autres slots de navigation tels quels) ...
+
 void AdminDashboard::on_btn_menu_users_clicked() {
     ui->stackedWidget->setCurrentIndex(1);
-    pageUsers->refresh(); // Astuce : On crée une fonction refresh() dans PageUsers
+    pageUsers->refresh();
     ui->btn_menu_dashboard->setChecked(false); ui->btn_menu_users->setChecked(true);
     ui->btn_menu_services->setChecked(false); ui->btn_menu_rooms->setChecked(false);
 }
-// Ajoutez refresh() pour les autres pages aussi lors du clic
+
 void AdminDashboard::on_btn_menu_services_clicked() {
     ui->stackedWidget->setCurrentIndex(2);
     pageServices->refresh();
     ui->btn_menu_dashboard->setChecked(false); ui->btn_menu_users->setChecked(false);
     ui->btn_menu_services->setChecked(true); ui->btn_menu_rooms->setChecked(false);
 }
+
 void AdminDashboard::on_btn_menu_rooms_clicked() {
     ui->stackedWidget->setCurrentIndex(3);
     pageRooms->refresh();

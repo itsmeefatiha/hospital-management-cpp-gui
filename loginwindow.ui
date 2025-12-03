@@ -14,7 +14,7 @@
    <string>Connexion Hôpital</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #f0f2f5;</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -74,7 +74,7 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>450</width>
+        <width>600</width>
         <height>16777215</height>
        </size>
       </property>
