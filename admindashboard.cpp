@@ -8,12 +8,14 @@
 #include <QPixmap>
 #include <QDir> // <--- Ajout pour le diagnostic de chemin
 #include <QFile> // <--- Ajout pour vérifier l'existence du fichier
+#include <QHeaderView>
 
 AdminDashboard::AdminDashboard(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::AdminDashboard)
 {
     ui->setupUi(this);
+    ui->tableWidget_appointments->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     // --- DIAGNOSTIC DE CHEMIN D'IMAGE ---
     QString imagePath = ":/resources/medicine.png";
