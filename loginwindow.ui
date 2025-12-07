@@ -222,7 +222,7 @@ QPushButton:pressed {
           <string notr="true">color: #2d7aed; text-decoration: underline;</string>
          </property>
          <property name="text">
-          <string>Mot de passe oublié ?</string>
+          <string/>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>
