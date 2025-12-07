@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
+    <width>950</width>
     <height>600</height>
    </rect>
   </property>
@@ -23,77 +23,50 @@ QFrame.Card {
     border: 1px solid #e0e0e0; 
 }
 
-QLabel {
-    color: #333333; 
-}
+QLabel { color: #333333; }
 
-/* --- CHAMPS DE TEXTE --- */
 QLineEdit { 
-    border: 1px solid #ccc; 
-    border-radius: 4px; 
-    padding: 6px; 
-    background-color: #fafafa; 
-    color: #333333; 
+    border: 1px solid #ccc; border-radius: 4px; padding: 6px; background-color: #fafafa; color: #333333; 
 }
-QLineEdit:focus { 
-    border: 1px solid #2d7aed; 
-    background-color: white; 
-}
+QLineEdit:focus { border: 1px solid #2d7aed; background-color: white; }
 
-/* --- LISTE DÉROULANTE (CORRIGÉ) --- */
 QComboBox {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 6px;
-    background-color: #fafafa;
-    color: #333333; /* Texte de la boite fermée */
+    border: 1px solid #ccc; border-radius: 4px; padding: 6px; background-color: #fafafa; color: #333333;
 }
-QComboBox:focus {
-    border: 1px solid #2d7aed;
-    background-color: white;
-}
-/* Le menu déroulant lui-même */
+QComboBox:focus { border: 1px solid #2d7aed; background-color: white; }
 QComboBox QAbstractItemView {
-    background-color: white;
-    color: #333333;       /* Texte des options en noir */
-    selection-background-color: #2d7aed;
-    selection-color: white;
-    outline: 0;
+    background-color: white; color: #333333; selection-background-color: #2d7aed; selection-color: white; outline: 0;
 }
 
-/* --- BOUTONS --- */
-QPushButton.ActionBtn { 
-    background-color: #2d7aed; 
-    color: white; 
-    border-radius: 4px; 
-    padding: 8px; 
-    font-weight: bold; 
-    border: none;
-}
-QPushButton.ActionBtn:hover {
-    background-color: #1a5fc7;
-}
-
-/* --- TABLEAU --- */
+/* TABLEAU */
 QTableWidget {
-    background-color: white;
-    gridline-color: #f0f0f0;
-    selection-background-color: #e6f0ff;
-    selection-color: #2d7aed;
-    color: #333333;
-    border: none;
+    background-color: white; gridline-color: #f0f0f0; selection-background-color: #e6f0ff; selection-color: #2d7aed; color: #333333; border: none;
 }
 QHeaderView::section {
-    background-color: #f8f9fa;
-    padding: 5px;
-    border: none;
-    border-bottom: 2px solid #2d7aed;
-    font-weight: bold;
-    color: #333333;
+    background-color: #f8f9fa; padding: 5px; border: none; border-bottom: 2px solid #2d7aed; font-weight: bold; color: #333333;
 }
+
+/* BOUTONS */
+QPushButton { border-radius: 4px; padding: 8px; font-weight: bold; color: white; border: none; }
+
+QPushButton#btn_add { background-color: #28a745; }
+QPushButton#btn_add:hover { background-color: #218838; }
+QPushButton#btn_add:disabled { background-color: #94d3a2; }
+
+QPushButton#btn_edit { background-color: #ffc107; color: #333; }
+QPushButton#btn_edit:hover { background-color: #e0a800; }
+QPushButton#btn_edit:disabled { background-color: #ffeeba; color: #999; }
+
+QPushButton#btn_delete { background-color: #dc3545; }
+QPushButton#btn_delete:hover { background-color: #c82333; }
+QPushButton#btn_delete:disabled { background-color: #e4b9bc; }
+
+QPushButton#btn_clear { background-color: #6c757d; }
+QPushButton#btn_clear:hover { background-color: #5a6268; }
 </string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
+   
    <item>
     <widget class="QFrame" name="frame_list">
      <property name="class" stdset="0">
@@ -117,6 +90,12 @@ QHeaderView::section {
        <widget class="QTableWidget" name="tableUsers">
         <property name="alternatingRowColors">
          <bool>true</bool>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectRows</enum>
+        </property>
+        <property name="editTriggers">
+         <enum>QAbstractItemView::NoEditTriggers</enum>
         </property>
         <column>
          <property name="text">
@@ -143,7 +122,7 @@ QHeaderView::section {
     <widget class="QFrame" name="frame_form">
      <property name="maximumSize">
       <size>
-       <width>300</width>
+       <width>320</width>
        <height>16777215</height>
       </size>
      </property>
@@ -157,17 +136,18 @@ QHeaderView::section {
       <item>
        <widget class="QLabel" name="label_form_title">
         <property name="text">
-         <string>Ajouter / Modifier</string>
+         <string>Gérer Utilisateur</string>
         </property>
         <property name="styleSheet">
          <string notr="true">font-size: 16px; font-weight: bold; margin-bottom: 10px;</string>
         </property>
        </widget>
       </item>
+      
       <item>
        <widget class="QLineEdit" name="lineEdit_name">
         <property name="placeholderText">
-         <string>Nom complet</string>
+         <string>Nom complet (Nom Prénom)</string>
         </property>
        </widget>
       </item>
@@ -175,7 +155,7 @@ QHeaderView::section {
       <item>
        <widget class="QLineEdit" name="lineEdit_email">
         <property name="placeholderText">
-         <string>Login</string>
+         <string>Login (Email)</string>
         </property>
        </widget>
       </item>
@@ -199,6 +179,7 @@ QHeaderView::section {
         </item>
        </widget>
       </item>
+      
       <item>
        <widget class="QLineEdit" name="lineEdit_password">
         <property name="echoMode">
@@ -209,16 +190,34 @@ QHeaderView::section {
         </property>
        </widget>
       </item>
+      
       <item>
-       <widget class="QPushButton" name="btn_save_user">
-        <property name="class" stdset="0">
-         <string>ActionBtn</string>
-        </property>
-        <property name="text">
-         <string>Enregistrer</string>
-        </property>
-       </widget>
+        <layout class="QGridLayout" name="gridLayout_btns">
+         <item row="0" column="0">
+          <widget class="QPushButton" name="btn_add">
+           <property name="text"><string>Ajouter</string></property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="btn_edit">
+           <property name="text"><string>Modifier</string></property>
+           <property name="enabled"><bool>false</bool></property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="btn_delete">
+           <property name="text"><string>Supprimer</string></property>
+           <property name="enabled"><bool>false</bool></property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QPushButton" name="btn_clear">
+           <property name="text"><string>Annuler</string></property>
+          </widget>
+         </item>
+        </layout>
       </item>
+      
       <item>
        <spacer name="verticalSpacer">
         <property name="orientation">
