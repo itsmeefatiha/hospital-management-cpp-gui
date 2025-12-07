@@ -7,6 +7,11 @@
 #include "pageservices.h"
 #include "pagerooms.h"
 
+#include <QtCore>
+#include <QtGui>
+#include <QtWidgets>
+#include <QtCharts>
+
 namespace Ui {
 class AdminDashboard;
 }
@@ -38,6 +43,8 @@ private:
     // --- FONCTIONS MANQUANTES ---
     void refreshStats();       // <--- AJOUTÉ
     void loadRecentActivity(); // <--- AJOUTÉ
+    void setupChart();
+    void setupDoughnutChart();  // <--- AJOUTER CETTE LIGNE
 };
 
 #endif // ADMINDASHBOARD_H

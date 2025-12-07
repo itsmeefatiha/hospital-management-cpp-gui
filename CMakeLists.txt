@@ -10,10 +10,10 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # ----------------------------------------------------------------------
-# FIX 1: Add 'Sql' to the required components here
+# MODIFICATION 1 : Ajout de 'Charts' dans la recherche de paquets
 # ----------------------------------------------------------------------
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql PrintSupport)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql PrintSupport)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql PrintSupport Charts)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql PrintSupport Charts)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -50,10 +50,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         pagerooms.h pagerooms.cpp pagerooms.ui
         pagepatientappointments.h pagepatientappointments.cpp pagepatientappointments.ui
         pagepatientrecord.h pagepatientrecord.cpp pagepatientrecord.ui
-
         pagepatientprescriptions.h pagepatientprescriptions.cpp pagepatientprescriptions.ui
         resources.qrc
-
     )
 else()
     if(ANDROID)
@@ -68,12 +66,13 @@ else()
 endif()
 
 # ----------------------------------------------------------------------
-# FIX 2: Link the Qt Sql library to your ACTUAL target name
+# MODIFICATION 2 : Lier la librairie Qt Charts à votre cible
 # ----------------------------------------------------------------------
 target_link_libraries(hospital-management-cpp-gui PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Sql
     Qt${QT_VERSION_MAJOR}::PrintSupport
+    Qt${QT_VERSION_MAJOR}::Charts  # <--- AJOUT CRITIQUE ICI
 )
 
 # Qt for iOS setup (standard boilerplate)

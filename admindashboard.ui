@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1200</width>
-    <height>800</height>
+    <height>850</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@ QPushButton[class=&quot;SidebarBtn&quot;]:checked { background-color: #e6f0ff; c
 /* --- CARTES - CORRIGÉ --- */
 QFrame[class=&quot;Card&quot;] { background-color: white; border-radius: 8px; border: 1px solid #e0e0e0; }
 
-/* LABELS STATISTIQUES - CORRIGÉ (C'est ici que ça bloquait) */
+/* LABELS STATISTIQUES - CORRIGÉ */
 QLabel[class=&quot;StatValue&quot;] { font-size: 32px; font-weight: bold; color: #2d7aed; }
 QLabel[class=&quot;StatLabel&quot;] { color: #777; font-size: 14px; }
 QLabel[class=&quot;SectionTitle&quot;] { font-size: 18px; font-weight: bold; color: #333; }
@@ -67,8 +67,8 @@ QTableWidget::item {
     padding: 5px;
 }
 
-/* Style temporaire pour le placeholder du graphique */
-QWidget#chart_placeholder {
+/* Style temporaire pour les placeholders */
+QWidget#chart_placeholder, QWidget#doughnut_placeholder {
     background-color: #fafafa;
     border: 1px dashed #d0d0d0;
     border-radius: 4px;
@@ -444,6 +444,13 @@ QWidget#chart_placeholder {
           </property>
           <item>
            <widget class="QFrame" name="frame_table_container">
+            <property name="styleSheet">
+             <string notr="true">QFrame#frame_table_container {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}</string>
+            </property>
             <property name="frameShape">
              <enum>QFrame::Shape::StyledPanel</enum>
             </property>
@@ -504,52 +511,89 @@ QWidget#chart_placeholder {
            </widget>
           </item>
           <item>
-           <widget class="QFrame" name="frame_chart_container">
-            <property name="frameShape">
-             <enum>QFrame::Shape::StyledPanel</enum>
+           <layout class="QVBoxLayout" name="verticalLayout_right_column">
+            <property name="spacing">
+             <number>20</number>
             </property>
-            <property name="class" stdset="0">
-             <string>Card</string>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_chart">
-             <item>
-              <widget class="QLabel" name="label_chart_title">
-               <property name="styleSheet">
-                <string notr="true">font-size: 18px; font-weight: bold; color: #333;</string>
-               </property>
-               <property name="text">
-                <string>Statistiques de la Semaine 📊</string>
-               </property>
-               <property name="class" stdset="0">
-                <string>SectionTitle</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="verticalSpacer">
-               <property name="orientation">
-                <enum>Qt::Orientation::Vertical</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QWidget" name="chart_placeholder" native="true">
-               <property name="minimumSize">
-                <size>
-                 <width>300</width>
-                 <height>250</height>
-                </size>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
+            <item>
+             <widget class="QFrame" name="frame_doughnut_container">
+              <property name="styleSheet">
+               <string notr="true">QFrame#frame_doughnut_container {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::Shape::StyledPanel</enum>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_doughnut">
+               <item>
+                <widget class="QLabel" name="label_doughnut_title">
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 18px; font-weight: bold; color: #333;</string>
+                 </property>
+                 <property name="text">
+                  <string>Répartition des chambres 🏨</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="doughnut_placeholder" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>200</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QFrame" name="frame_chart_container">
+              <property name="styleSheet">
+               <string notr="true">QFrame#frame_chart_container {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}</string>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::Shape::StyledPanel</enum>
+              </property>
+              <property name="class" stdset="0">
+               <string>Card</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_chart">
+               <item>
+                <widget class="QLabel" name="label_chart_title">
+                 <property name="styleSheet">
+                  <string notr="true">font-size: 18px; font-weight: bold; color: #333;</string>
+                 </property>
+                 <property name="text">
+                  <string>Statistiques de la Semaine 📊</string>
+                 </property>
+                 <property name="class" stdset="0">
+                  <string>SectionTitle</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="chart_placeholder" native="true">
+                 <property name="minimumSize">
+                  <size>
+                   <width>300</width>
+                   <height>200</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
           </item>
          </layout>
         </item>

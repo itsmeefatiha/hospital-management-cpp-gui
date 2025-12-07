@@ -1,6 +1,9 @@
 #include "admindashboard.h"
 #include "ui_admindashboard.h"
 #include "loginwindow.h"
+
+#include <QtCharts>
+
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
@@ -56,6 +59,8 @@ AdminDashboard::AdminDashboard(QWidget *parent)
     // Charger les données du Dashboard au démarrage
     refreshStats();
     loadRecentActivity();
+    setupChart(); // <--- Intègre le graphique
+    setupDoughnutChart();
 }
 
 AdminDashboard::~AdminDashboard()
@@ -166,4 +171,145 @@ void AdminDashboard::on_btn_logout_clicked() {
     LoginWindow *login = new LoginWindow();
     login->show();
     this->close();
+}
+void AdminDashboard::setupChart()
+{
+    // 1. Préparer les données (7 jours de la semaine initialisés à 0)
+    QMap<int, int> rdvParJour;
+    for(int i=1; i<=7; ++i) rdvParJour[i] = 0;
+
+    // 2. Récupérer les données réelles depuis la BDD (PostgreSQL)
+    QSqlQuery query;
+    // EXTRACT(ISODOW) renvoie 1 pour Lundi, 7 pour Dimanche
+    QString sql = "SELECT EXTRACT(ISODOW FROM date_heure) as jour, COUNT(*) "
+                  "FROM rendez_vous "
+                  "WHERE date_heure >= date_trunc('week', CURRENT_DATE) "
+                  "GROUP BY jour";
+
+    if(query.exec(sql)) {
+        while(query.next()) {
+            int jour = query.value(0).toInt();
+            int count = query.value(1).toInt();
+            rdvParJour[jour] = count;
+        }
+    }
+
+    // 3. Créer le BarSet (Les barres verticales)
+    QBarSet *set0 = new QBarSet("Rendez-vous");
+    for(int i=1; i<=7; ++i) {
+        *set0 << rdvParJour[i]; // Ajouter la valeur de chaque jour
+    }
+    set0->setColor(QColor(45, 122, 237)); // Bleu du thème (#2d7aed)
+
+    // 4. Créer la Série
+    QBarSeries *series = new QBarSeries();
+    series->append(set0);
+
+    // 5. Créer le Graphique
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Rendez-vous cette semaine");
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+    chart->legend()->setVisible(false); // Pas besoin de légende pour une seule série
+    chart->setBackgroundRoundness(0);
+    chart->setMargins(QMargins(0,0,0,0)); // Maximiser l'espace
+
+    // 6. Axe X (Jours)
+    QStringList categories;
+    categories << "Lun" << "Mar" << "Mer" << "Jeu" << "Ven" << "Sam" << "Dim";
+    QBarCategoryAxis *axisX = new QBarCategoryAxis();
+    axisX->append(categories);
+    chart->addAxis(axisX, Qt::AlignBottom);
+    series->attachAxis(axisX);
+
+    // 7. Axe Y (Nombre)
+    QValueAxis *axisY = new QValueAxis();
+    axisY->setLabelFormat("%d"); // Entiers uniquement
+    chart->addAxis(axisY, Qt::AlignLeft);
+    series->attachAxis(axisY);
+
+    // 8. Affichage (ChartView)
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    // --- INTÉGRATION DANS L'INTERFACE ---
+    // On remplace le widget placeholder vide par notre graphique
+    if (ui->verticalLayout_chart) {
+        // Supprimer le placeholder existant
+        if(ui->chart_placeholder) {
+            ui->verticalLayout_chart->removeWidget(ui->chart_placeholder);
+            delete ui->chart_placeholder;
+            ui->chart_placeholder = nullptr;
+        }
+        // Ajouter le graphique
+        ui->verticalLayout_chart->addWidget(chartView);
+    }
+}
+void AdminDashboard::setupDoughnutChart()
+{
+    // 1. Récupération des données SQL
+    int totalChambres = 0;
+    int chambresOccupees = 0;
+    QSqlQuery query;
+
+    // Compter le total
+    if(query.exec("SELECT COUNT(*) FROM chambres")) {
+        if(query.next()) totalChambres = query.value(0).toInt();
+    }
+
+    // Compter les occupées (est_disponible = false)
+    if(query.exec("SELECT COUNT(*) FROM chambres WHERE est_disponible = false")) {
+        if(query.next()) chambresOccupees = query.value(0).toInt();
+    }
+
+    int chambresLibres = totalChambres - chambresOccupees;
+
+    // 2. Création de la série (Camembert)
+    QPieSeries *series = new QPieSeries();
+    // C'est cette ligne qui transforme le Pie Chart en Doughnut Chart (Trou au milieu)
+    series->setHoleSize(0.40);
+
+    // Ajout des parts
+    QPieSlice *sliceOcc = series->append("Occupées", chambresOccupees);
+    QPieSlice *sliceFree = series->append("Libres", chambresLibres);
+
+    // 3. Personnalisation des couleurs et labels
+    // Occupées en BLEU (Couleur du thème)
+    sliceOcc->setColor(QColor("#2d7aed"));
+    sliceOcc->setLabelVisible(true);
+    sliceOcc->setLabelColor(Qt::black);
+
+    // Libres en GRIS CLAIR
+    sliceFree->setColor(QColor("#e0e0e0"));
+    sliceFree->setLabelVisible(true);
+
+    // Si une part est trop petite, on cache le label pour éviter la superposition
+    if (chambresOccupees == 0) sliceOcc->setLabelVisible(false);
+    if (chambresLibres == 0) sliceFree->setLabelVisible(false);
+
+    // 4. Création du graphique
+    QChart *chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Disponibilité des Lits");
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+    chart->legend()->setAlignment(Qt::AlignRight); // Légende à droite
+    chart->setBackgroundRoundness(0);
+    chart->setMargins(QMargins(0,0,0,0));
+
+    // 5. Création de la Vue (ChartView)
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    // 6. Intégration dans l'interface (Remplacement du Placeholder)
+    // On vérifie que le layout existe (créé dans le XML précédent)
+    if (ui->verticalLayout_doughnut) {
+        // Si le placeholder existe encore, on le supprime
+        if(ui->doughnut_placeholder) {
+            ui->verticalLayout_doughnut->removeWidget(ui->doughnut_placeholder);
+            delete ui->doughnut_placeholder;
+            ui->doughnut_placeholder = nullptr;
+        }
+        // On ajoute le graphique
+        ui->verticalLayout_doughnut->addWidget(chartView);
+    }
 }
