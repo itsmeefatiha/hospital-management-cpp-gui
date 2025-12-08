@@ -20,28 +20,28 @@ QWidget { font-family: &quot;Segoe UI&quot;, sans-serif; }
 
 /* --- SIDEBAR --- */
 QFrame#frame_sidebar { background-color: white; border-right: 1px solid #e0e0e0; }
-QLabel#label_app_name { color: #2d7aed; font-weight: bold; font-size: 18px; padding: 10px; }
-QLabel#label_role { color: #777; font-size: 13px; padding-bottom: 20px; }
+QLabel#label_app_name { color: #2d7aed; font-weight: bold; font-size: 18px; padding: 5px; }
+QLabel#label_role { color: #777; font-size: 13px; padding-bottom: 20px; font-weight: bold; }
 
 /* BOUTONS SIDEBAR */
-QPushButton.SidebarBtn {
+QPushButton[class=&quot;SidebarBtn&quot;] {
     text-align: left; padding: 12px 20px; border: none; background-color: transparent;
     font-size: 15px; color: #555; border-radius: 5px; margin: 4px 10px;
 }
-QPushButton.SidebarBtn:hover { background-color: #f5f7fa; color: #2d7aed; }
-QPushButton.SidebarBtn:checked { background-color: #e6f0ff; color: #2d7aed; font-weight: bold; }
+QPushButton[class=&quot;SidebarBtn&quot;]:hover { background-color: #f5f7fa; color: #2d7aed; }
+QPushButton[class=&quot;SidebarBtn&quot;]:checked { background-color: #e6f0ff; color: #2d7aed; font-weight: bold; }
 
 /* --- CONTENEURS --- */
-QFrame.Card { background-color: white; border-radius: 8px; border: 1px solid #dcdcdc; }
+QFrame[class=&quot;Card&quot;] { background-color: white; border-radius: 8px; border: 1px solid #dcdcdc; }
 
-/* --- TABLEAU (CORRECTION COULEUR) --- */
+/* --- TABLEAU --- */
 QTableWidget { 
     background-color: white; 
     border: none; 
     gridline-color: #f0f0f0; 
     selection-background-color: #e6f0ff; 
     selection-color: #2d7aed;
-    color: #333333; /* &lt;-- ICI : Texte en noir */
+    color: #333333;
 }
 
 QHeaderView::section { 
@@ -50,7 +50,7 @@ QHeaderView::section {
     border: none; 
     border-bottom: 2px solid #2d7aed; 
     font-weight: bold; 
-    color: #333333; /* &lt;-- ICI : Titres en noir */
+    color: #333333;
 }
 </string>
   </property>
@@ -71,7 +71,6 @@ QHeaderView::section {
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    
     <item>
      <widget class="QFrame" name="frame_sidebar">
       <property name="minimumSize">
@@ -87,7 +86,7 @@ QHeaderView::section {
        </size>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_sidebar">
        <property name="spacing">
@@ -96,10 +95,25 @@ QHeaderView::section {
        <property name="topMargin">
         <number>30</number>
        </property>
-       <item>
-        <widget class="QLabel" name="label_app_name">
+       <item alignment="Qt::AlignmentFlag::AlignHCenter">
+        <widget class="QLabel" name="label_logo">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>100</height>
+          </size>
+         </property>
          <property name="text">
-          <string>🏥 Accueil Hôpital</string>
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -108,6 +122,9 @@ QHeaderView::section {
        </item>
        <item>
         <widget class="QLabel" name="label_role">
+         <property name="styleSheet">
+          <string notr="true">color: #000; font-weight: bold; font-size: 18px; padding: 10px;</string>
+         </property>
          <property name="text">
           <string>Service Réception</string>
          </property>
@@ -122,7 +139,7 @@ QHeaderView::section {
           <enum>Qt::Orientation::Vertical</enum>
          </property>
          <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
+          <enum>QSizePolicy::Policy::Fixed</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -134,9 +151,6 @@ QHeaderView::section {
        </item>
        <item>
         <widget class="QPushButton" name="btn_nav_dashboard">
-         <property name="class" stdset="0">
-          <string>SidebarBtn</string>
-         </property>
          <property name="text">
           <string>📅  Agenda Global</string>
          </property>
@@ -146,44 +160,47 @@ QHeaderView::section {
          <property name="checked">
           <bool>true</bool>
          </property>
+         <property name="class" stdset="0">
+          <string>SidebarBtn</string>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="btn_nav_patients">
-         <property name="class" stdset="0">
-          <string>SidebarBtn</string>
-         </property>
          <property name="text">
           <string>👤  Gestion Patients</string>
          </property>
          <property name="checkable">
           <bool>true</bool>
          </property>
+         <property name="class" stdset="0">
+          <string>SidebarBtn</string>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="btn_nav_rdv">
-         <property name="class" stdset="0">
-          <string>SidebarBtn</string>
-         </property>
          <property name="text">
           <string>📆  Prise de RDV</string>
          </property>
          <property name="checkable">
           <bool>true</bool>
          </property>
+         <property name="class" stdset="0">
+          <string>SidebarBtn</string>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="btn_nav_admissions">
-         <property name="class" stdset="0">
-          <string>SidebarBtn</string>
-         </property>
          <property name="text">
           <string>🛏️  Hospitalisation</string>
          </property>
          <property name="checkable">
           <bool>true</bool>
+         </property>
+         <property name="class" stdset="0">
+          <string>SidebarBtn</string>
          </property>
         </widget>
        </item>
@@ -202,37 +219,38 @@ QHeaderView::section {
        </item>
        <item>
         <widget class="QPushButton" name="btn_logout">
-         <property name="class" stdset="0">
-          <string>SidebarBtn</string>
-         </property>
          <property name="styleSheet">
           <string notr="true">color: #d9534f;</string>
          </property>
          <property name="text">
           <string>🚪 Déconnexion</string>
          </property>
+         <property name="class" stdset="0">
+          <string>SidebarBtn</string>
+         </property>
         </widget>
        </item>
       </layout>
      </widget>
     </item>
-
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
        <number>0</number>
       </property>
-      
       <widget class="QWidget" name="page_agenda">
        <layout class="QVBoxLayout" name="verticalLayout_agenda">
         <property name="leftMargin">
-            <number>30</number>
+         <number>30</number>
         </property>
         <property name="topMargin">
-            <number>30</number>
+         <number>30</number>
         </property>
         <property name="rightMargin">
-            <number>30</number>
+         <number>30</number>
+        </property>
+        <property name="bottomMargin">
+         <number>30</number>
         </property>
         <item>
          <widget class="QLabel" name="label_title_agenda">
@@ -246,11 +264,11 @@ QHeaderView::section {
         </item>
         <item>
          <widget class="QFrame" name="frame_agenda_list">
+          <property name="frameShape">
+           <enum>QFrame::Shape::StyledPanel</enum>
+          </property>
           <property name="class" stdset="0">
            <string>Card</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_table">
            <item>
@@ -259,7 +277,7 @@ QHeaderView::section {
               <bool>true</bool>
              </property>
              <property name="selectionBehavior">
-              <enum>QAbstractItemView::SelectRows</enum>
+              <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
              </property>
              <attribute name="horizontalHeaderStretchLastSection">
               <bool>true</bool>
@@ -299,7 +317,6 @@ QHeaderView::section {
         </item>
        </layout>
       </widget>
-      
      </widget>
     </item>
    </layout>
