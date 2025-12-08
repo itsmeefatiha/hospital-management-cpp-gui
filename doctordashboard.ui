@@ -67,7 +67,6 @@ QHeaderView::section {
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    
     <item>
      <widget class="QFrame" name="frame_sidebar">
       <property name="minimumSize">
@@ -83,7 +82,7 @@ QHeaderView::section {
        </size>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_sidebar">
        <property name="spacing">
@@ -92,10 +91,38 @@ QHeaderView::section {
        <property name="topMargin">
         <number>30</number>
        </property>
+       <item alignment="Qt::AlignmentFlag::AlignHCenter">
+        <widget class="QLabel" name="label_logo">
+         <property name="minimumSize">
+          <size>
+           <width>70</width>
+           <height>70</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
        <item>
         <widget class="QLabel" name="label_app_name">
+         <property name="styleSheet">
+          <string notr="true">color: #000; font-weight: bold; font-size: 18px; padding: 10px;</string>
+         </property>
          <property name="text">
-          <string>🩺 Espace Médecin</string>
+          <string>🩺 Hôpital Manager</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -114,9 +141,6 @@ QHeaderView::section {
        </item>
        <item>
         <widget class="QPushButton" name="btn_menu_agenda">
-         <property name="class" stdset="0">
-          <string>SidebarBtn</string>
-         </property>
          <property name="text">
           <string>📅  Mon Agenda</string>
          </property>
@@ -126,31 +150,34 @@ QHeaderView::section {
          <property name="checked">
           <bool>true</bool>
          </property>
+         <property name="class" stdset="0">
+          <string>SidebarBtn</string>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="btn_menu_search">
-         <property name="class" stdset="0">
-          <string>SidebarBtn</string>
-         </property>
          <property name="text">
           <string>🔍  Recherche Patient</string>
          </property>
          <property name="checkable">
           <bool>true</bool>
          </property>
+         <property name="class" stdset="0">
+          <string>SidebarBtn</string>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="btn_menu_dossier">
-         <property name="class" stdset="0">
-          <string>SidebarBtn</string>
-         </property>
          <property name="text">
           <string>📂  Dossier Médical (Actif)</string>
          </property>
          <property name="checkable">
           <bool>true</bool>
+         </property>
+         <property name="class" stdset="0">
+          <string>SidebarBtn</string>
          </property>
         </widget>
        </item>
@@ -169,37 +196,35 @@ QHeaderView::section {
        </item>
        <item>
         <widget class="QPushButton" name="btn_logout">
-         <property name="class" stdset="0">
-          <string>SidebarBtn</string>
-         </property>
          <property name="styleSheet">
           <string notr="true">color: #d9534f;</string>
          </property>
          <property name="text">
           <string>🚪 Déconnexion</string>
          </property>
+         <property name="class" stdset="0">
+          <string>SidebarBtn</string>
+         </property>
         </widget>
        </item>
       </layout>
      </widget>
     </item>
-
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
        <number>0</number>
       </property>
-      
       <widget class="QWidget" name="page_agenda">
        <layout class="QVBoxLayout" name="verticalLayout_agenda">
         <property name="leftMargin">
-            <number>30</number>
+         <number>30</number>
         </property>
         <property name="topMargin">
-            <number>30</number>
+         <number>30</number>
         </property>
         <property name="rightMargin">
-            <number>30</number>
+         <number>30</number>
         </property>
         <item>
          <widget class="QLabel" name="label_agenda_title">
@@ -213,11 +238,11 @@ QHeaderView::section {
         </item>
         <item>
          <widget class="QFrame" name="frame_agenda_container">
+          <property name="frameShape">
+           <enum>QFrame::Shape::StyledPanel</enum>
+          </property>
           <property name="class" stdset="0">
            <string>Card</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::StyledPanel</enum>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_table_agenda">
            <item>
@@ -226,7 +251,7 @@ QHeaderView::section {
               <bool>true</bool>
              </property>
              <property name="selectionBehavior">
-              <enum>QAbstractItemView::SelectRows</enum>
+              <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
              </property>
              <property name="showGrid">
               <bool>false</bool>
@@ -269,7 +294,6 @@ QHeaderView::section {
         </item>
        </layout>
       </widget>
-      
      </widget>
     </item>
    </layout>

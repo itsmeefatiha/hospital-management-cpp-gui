@@ -5,12 +5,20 @@
 #include <QSqlError>
 #include <QDebug>
 #include <QDateTime>
+#include <QPixmap>
+#include <QDir> // <--- Ajout pour le diagnostic de chemin
+#include <QFile>
 
 ReceptionDashboard::ReceptionDashboard(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ReceptionDashboard)
 {
     ui->setupUi(this);
+
+    QPixmap logo(":/resources/medicine.png");
+    if (!logo.isNull()) {
+        ui->label_logo->setPixmap(logo.scaled(ui->label_logo->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    }
 
     // Initialisation des pages
     pagePatients = new PagePatients();

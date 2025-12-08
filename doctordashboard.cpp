@@ -4,6 +4,7 @@
 #include <QSqlQuery>
 #include <QDateTime>
 #include <QDebug>
+#include <QPixmap>
 #include <QSqlError>
 
 DoctorDashboard::DoctorDashboard(int doctorId,QWidget *parent)
@@ -13,9 +14,32 @@ DoctorDashboard::DoctorDashboard(int doctorId,QWidget *parent)
 {
     ui->setupUi(this);
 
+    QPixmap logo(":/resources/medicine.png");
+    if (!logo.isNull()) {
+        ui->label_logo->setPixmap(logo.scaled(ui->label_logo->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    }
+
+    QSqlQuery qDoc;
+    qDoc.prepare("SELECT u.nom, u.prenom, s.nom_service "
+                 "FROM utilisateurs u "
+                 "JOIN medecins m ON u.id_user = m.id_medecin "
+                 "JOIN services s ON m.id_service = s.id_service "
+                 "WHERE u.id_user = :id");
+    qDoc.bindValue(":id", doctorId);
+
+    if (qDoc.exec() && qDoc.next()) {
+        QString nom = qDoc.value(0).toString();
+        QString prenom = qDoc.value(1).toString();
+        QString service = qDoc.value(2).toString();
+
+        // On met à jour le label de la barre latérale
+        ui->label_doctor_profile->setText("Dr. " + prenom + " " + nom + " (" + service + ")");
+    }
+
     // Initialisation des pages externes
     pageSearch = new PagePatientSearch();
     pageMedical = new PageMedicalRecord();
+
 
     // Ajout au StackedWidget (L'agenda est déjà à l'index 0)
     ui->stackedWidget->addWidget(pageSearch);   // Index 1

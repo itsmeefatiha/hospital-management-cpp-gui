@@ -3,6 +3,7 @@
 #include "loginwindow.h"
 #include <QSqlQuery>
 #include <QSqlError>
+#include <QPixmap>
 #include <QDateTime>
 
 PatientDashboard::PatientDashboard(int patientId, QWidget *parent)
@@ -11,6 +12,11 @@ PatientDashboard::PatientDashboard(int patientId, QWidget *parent)
     , currentPatientId(patientId)
 {
     ui->setupUi(this);
+
+    QPixmap logo(":/resources/medicine.png");
+    if (!logo.isNull()) {
+        ui->label_logo->setPixmap(logo.scaled(ui->label_logo->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    }
 
     // Initialisation des pages
     pageRdv = new PagePatientAppointments();
