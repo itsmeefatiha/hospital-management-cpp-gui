@@ -2,9 +2,8 @@
 #define LOGINWINDOW_H
 
 #include <QMainWindow>
-#include <QSqlDatabase> // Pour gérer la DB
+#include <QSqlDatabase>
 
-// Inclure les en-têtes des différents tableaux de bord
 #include "admindashboard.h"
 #include "receptiondashboard.h"
 #include "doctordashboard.h"

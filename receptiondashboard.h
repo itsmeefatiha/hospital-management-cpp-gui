@@ -31,7 +31,7 @@ private:
     PageRDV *pageRDV;
     PageAdmissions *pageAdmissions;
 
-    void refreshAgenda(); // <--- AJOUTER
+    void refreshAgenda();
 };
 
 #endif // RECEPTIONDASHBOARD_H

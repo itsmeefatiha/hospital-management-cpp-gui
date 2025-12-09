@@ -2,7 +2,7 @@
 #define PATIENTDASHBOARD_H
 
 #include <QMainWindow>
-// Inclusions des pages
+
 #include "pagepatientappointments.h"
 #include "pagepatientrecord.h"
 #include "pagepatientprescriptions.h"
@@ -16,7 +16,6 @@ class PatientDashboard : public QMainWindow
     Q_OBJECT
 
 public:
-    // Constructeur modifié pour accepter l'ID
     explicit PatientDashboard(int patientId, QWidget *parent = nullptr);
     ~PatientDashboard();
 

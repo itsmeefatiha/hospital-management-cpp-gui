@@ -2,7 +2,6 @@
 #define PAGEPATIENTPRESCRIPTIONS_H
 
 #include <QWidget>
-// Inclusions nécessaires pour l'impression
 #include <QPrinter>
 #include <QPrintDialog>
 #include <QTextDocument>

@@ -13,7 +13,6 @@ PagePatients::PagePatients(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->lineEdit_search, &QLineEdit::returnPressed, this, &PagePatients::on_btn_search_clicked);
 
-    // --- AJOUTER CETTE LIGNE ---
     // Connecte le changement de texte à notre nouvelle fonction
     connect(ui->lineEdit_search, &QLineEdit::textChanged, this, &PagePatients::on_search_text_changed);
 
@@ -51,7 +50,7 @@ void PagePatients::on_btn_save_clicked() // Bouton Enregistrer
         return;
     }
 
-    // Génération automatique d'un login/pass pour le patient (ex: nom.prenom / 1234)
+    // Génération automatique d'un login/pass pour le patient
     QString login = nom.toLower() + "." + prenom.toLower();
     QString password = "1234";
 

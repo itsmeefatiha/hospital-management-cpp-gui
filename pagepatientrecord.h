@@ -2,7 +2,7 @@
 #define PAGEPATIENTRECORD_H
 
 #include <QWidget>
-#include <QListWidgetItem> // Required for the slot
+#include <QListWidgetItem>
 
 namespace Ui {
 class PagePatientRecord;
@@ -16,7 +16,6 @@ public:
     explicit PagePatientRecord(QWidget *parent = nullptr);
     ~PagePatientRecord();
 
-    // --- THIS WAS MISSING ---
     void loadData(int patientId);
 
 private slots:

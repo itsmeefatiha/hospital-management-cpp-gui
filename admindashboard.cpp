@@ -9,8 +9,8 @@
 #include <QDebug>
 #include <QDateTime>
 #include <QPixmap>
-#include <QDir> // <--- Ajout pour le diagnostic de chemin
-#include <QFile> // <--- Ajout pour vérifier l'existence du fichier
+#include <QDir>
+#include <QFile>
 #include <QHeaderView>
 
 AdminDashboard::AdminDashboard(QWidget *parent)
@@ -30,7 +30,6 @@ AdminDashboard::AdminDashboard(QWidget *parent)
         qDebug() << "ERREUR CRITIQUE : Le fichier n'existe pas à cet emplacement !";
         qDebug() << "SOLUTION : Copiez le dossier 'resources' dans le dossier 'build-...'";
     }
-    // ------------------------------------
 
     // --- 2. AJOUT DU LOGO DANS LA SIDEBAR ---
     QPixmap logo(imagePath);
@@ -59,7 +58,7 @@ AdminDashboard::AdminDashboard(QWidget *parent)
     // Charger les données du Dashboard au démarrage
     refreshStats();
     loadRecentActivity();
-    setupChart(); // <--- Intègre le graphique
+    setupChart();
     setupDoughnutChart();
 }
 
