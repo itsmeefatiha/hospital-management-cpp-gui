@@ -15,7 +15,7 @@ public:
     explicit PageRooms(QWidget *parent = nullptr);
     ~PageRooms();
 
-    void refresh(); // <--- AJOUTÉ
+    void refresh();
 
 private slots:
     void on_btn_add_room_clicked();

@@ -14,8 +14,6 @@ class DoctorDashboard : public QMainWindow
     Q_OBJECT
 
 public:
-    // --- MODIFIEZ CETTE LIGNE ---
-    // Ajoutez "int doctorId" au début
     explicit DoctorDashboard(int doctorId, QWidget *parent = nullptr);
 
     ~DoctorDashboard();
@@ -25,7 +23,7 @@ private:
     PagePatientSearch *pageSearch;
     PageMedicalRecord *pageMedical;
 
-    int currentDoctorId; // Assurez-vous d'avoir ajouté cette variable aussi
+    int currentDoctorId;
     void refreshAgenda();
 
 private slots:

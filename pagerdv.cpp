@@ -26,7 +26,7 @@ PageRDV::~PageRDV()
 void PageRDV::refresh()
 {
     // 1. Charger les Services
-    ui->combo_service->blockSignals(true); // Eviter de déclencher loadDoctors trop tôt
+    ui->combo_service->blockSignals(true);
     ui->combo_service->clear();
     QSqlQuery query;
     if(query.exec("SELECT nom_service FROM services")) {
@@ -90,9 +90,9 @@ void PageRDV::on_btn_confirm_clicked()
         return;
     }
 
-    // --- FIX 2 : Recherche intelligente (Nom complet ou partiel) ---
+    // Recherche intelligente (Nom complet ou partiel) ---
     QSqlQuery findPat;
-    // On concatène nom + prenom pour pouvoir chercher "Jean Dupont" d'un coup
+    // On concatène nom + prenom pour pouvoir chercher d'un coup
     // ILIKE permet d'ignorer les majuscules/minuscules
     findPat.prepare("SELECT id_user FROM utilisateurs "
                     "WHERE role='PATIENT' "

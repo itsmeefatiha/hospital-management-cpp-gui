@@ -19,7 +19,7 @@ public:
 private:
     Ui::PagePatientSearch *ui;
 signals:
-    void patientSelected(int patientId); // Le signal qu'on va émettre
+    void patientSelected(int patientId);
 
 private slots:
     void on_btn_search_clicked();

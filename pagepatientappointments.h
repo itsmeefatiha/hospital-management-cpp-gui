@@ -15,7 +15,6 @@ public:
     explicit PagePatientAppointments(QWidget *parent = nullptr);
     ~PagePatientAppointments();
 
-    // --- THIS WAS MISSING ---
     void loadData(int patientId);
 
 private:

@@ -20,7 +20,7 @@ public:
 private slots:
     void on_listWidget_services_itemClicked(QListWidgetItem *item);
     void on_btn_add_service_clicked();
-    void on_btn_assign_doc_clicked(); // <--- AJOUTER CETTE LIGNE
+    void on_btn_assign_doc_clicked();
 
 private:
     Ui::PageServices *ui;

@@ -15,7 +15,6 @@ public:
     explicit PageRDV(QWidget *parent = nullptr);
     ~PageRDV();
 
-    // --- LA FONCTION MANQUANTE ---
     void refresh();
 
 private slots:
@@ -24,7 +23,6 @@ private slots:
 private:
     Ui::PageRDV *ui;
 
-    // --- FONCTIONS D'AIDE NÉCESSAIRES ---
     void loadDoctors(const QString &serviceName);
     void loadAppointments();
 };

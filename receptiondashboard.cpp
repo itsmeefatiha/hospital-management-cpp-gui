@@ -6,7 +6,7 @@
 #include <QDebug>
 #include <QDateTime>
 #include <QPixmap>
-#include <QDir> // <--- Ajout pour le diagnostic de chemin
+#include <QDir>
 #include <QFile>
 
 ReceptionDashboard::ReceptionDashboard(QWidget *parent)

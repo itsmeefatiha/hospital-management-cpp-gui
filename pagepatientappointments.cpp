@@ -7,7 +7,6 @@ PagePatientAppointments::PagePatientAppointments(QWidget *parent) :
     QWidget(parent), ui(new Ui::PagePatientAppointments)
 {
     ui->setupUi(this);
-    // Ajuster les colonnes
     ui->tableAppointments->setColumnWidth(0, 150); // Date
     ui->tableAppointments->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch); // Médecin
 }

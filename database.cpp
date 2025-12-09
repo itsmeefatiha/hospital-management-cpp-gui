@@ -7,8 +7,8 @@ QSqlDatabase Database::connect()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
 
-    db.setHostName("localhost");       // adresse serveur
-    db.setPort(5432);                  // port PostgreSQL
+    db.setHostName("localhost");
+    db.setPort(5432);
     db.setDatabaseName("db_hospital");
     db.setUserName("postgres");
     db.setPassword("fatiha");

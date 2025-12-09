@@ -12,10 +12,8 @@ PagePatientPrescriptions::PagePatientPrescriptions(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // Amélioration visuelle du tableau
     ui->tablePrescriptions->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    // CONNEXION DU CLIC : Indispensable pour que le bouton "Imprimer" fonctionne
     connect(ui->tablePrescriptions, &QTableWidget::cellClicked,
             this, &PagePatientPrescriptions::on_tablePrescriptions_cellClicked);
 }

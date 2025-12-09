@@ -2,7 +2,7 @@
 #include "ui_pageservices.h"
 #include <QSqlQuery>
 #include <QSqlError>
-#include <QInputDialog> // Pour demander le nom du nouveau service
+#include <QInputDialog>
 #include <QMessageBox>
 #include <QComboBox>
 
