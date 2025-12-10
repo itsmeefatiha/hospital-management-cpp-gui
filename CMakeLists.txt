@@ -56,9 +56,7 @@ set(PROJECT_SOURCES
     src/reception/pageadmissions.cpp
     src/reception/pageadmissions.h
     src/reception/pageadmissions.ui
-    src/reception/pagepatientsearch.cpp
-    src/reception/pagepatientsearch.h
-    src/reception/pagepatientsearch.ui
+
 
     # Doctor Module
     src/doctor/doctordashboard.cpp
@@ -67,6 +65,9 @@ set(PROJECT_SOURCES
     src/doctor/pagemedicalrecord.cpp
     src/doctor/pagemedicalrecord.h
     src/doctor/pagemedicalrecord.ui
+    src/doctor/pagepatientsearch.cpp
+    src/doctor/pagepatientsearch.h
+    src/doctor/pagepatientsearch.ui
 
     # Patient Module
     src/patient/patientdashboard.cpp

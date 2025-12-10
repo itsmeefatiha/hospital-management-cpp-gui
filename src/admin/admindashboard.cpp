@@ -20,7 +20,6 @@ AdminDashboard::AdminDashboard(QWidget *parent)
     ui->setupUi(this);
     ui->tableWidget_appointments->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
-    // --- DIAGNOSTIC DE CHEMIN D'IMAGE ---
     QString imagePath = ":/resources/medicine.png";
     qDebug() << "--- DIAGNOSTIC IMAGE ---";
     qDebug() << "Dossier d'exécution de l'app :" << QDir::currentPath();
@@ -31,7 +30,7 @@ AdminDashboard::AdminDashboard(QWidget *parent)
         qDebug() << "SOLUTION : Copiez le dossier 'resources' dans le dossier 'build-...'";
     }
 
-    // --- 2. AJOUT DU LOGO DANS LA SIDEBAR ---
+    // AJOUT DU LOGO DANS LA SIDEBAR
     QPixmap logo(imagePath);
 
     if (!logo.isNull()) {
@@ -42,7 +41,6 @@ AdminDashboard::AdminDashboard(QWidget *parent)
         qDebug() << "Erreur : Chargement de l'image échoué.";
         ui->label_app_name->setText("Hôpital Manager");
     }
-    // ----------------------------------------
 
     // Initialisation des pages
     pageUsers = new PageUsers();
@@ -231,7 +229,6 @@ void AdminDashboard::setupChart()
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
 
-    // --- INTÉGRATION DANS L'INTERFACE ---
     // On remplace le widget placeholder vide par notre graphique
     if (ui->verticalLayout_chart) {
         // Supprimer le placeholder existant

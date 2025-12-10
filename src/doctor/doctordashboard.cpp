@@ -67,8 +67,6 @@ void DoctorDashboard::refreshAgenda()
 {
     ui->table_appointments->setRowCount(0);
 
-    // CORRECTION : On sélectionne aussi 'id_patient'
-    // Note : On garde 'Consultation' comme motif statique puisque la colonne n'existe pas
     QString sql = QString("SELECT r.date_heure, p.nom || ' ' || p.prenom, 'Consultation', r.statut, p.id_user "
                           "FROM rendez_vous r "
                           "JOIN utilisateurs p ON r.id_patient = p.id_user "
@@ -93,7 +91,6 @@ void DoctorDashboard::refreshAgenda()
             ui->table_appointments->setItem(row, 2, new QTableWidgetItem(motif));
             ui->table_appointments->setItem(row, 3, new QTableWidgetItem(statut));
 
-            // --- ASTUCE : Bouton "Voir" avec l'ID caché ---
             QTableWidgetItem *btnItem = new QTableWidgetItem("Voir Dossier");
             btnItem->setData(Qt::UserRole, patientId); // On cache l'ID dans l'item
             btnItem->setTextAlignment(Qt::AlignCenter);
@@ -153,7 +150,7 @@ void DoctorDashboard::on_table_appointments_cellClicked(int row, int column)
         // 3. Basculer l'affichage sur l'onglet "Dossier Médical" (Index 2)
         ui->stackedWidget->setCurrentIndex(2);
 
-        // 4. Mettre à jour le menu latéral (visuel)
+        // 4. Mettre à jour le menu latéral
         ui->btn_menu_agenda->setChecked(false);
         ui->btn_menu_search->setChecked(false);
         ui->btn_menu_dossier->setChecked(true);
