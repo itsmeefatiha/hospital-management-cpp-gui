@@ -54,9 +54,6 @@ int main(int argc, char *argv[])
         "QDialog QPushButton:hover { background-color: #1a5fc7; }"
         "QDialog QPushButton:pressed { background-color: #154ba1; }"
 
-        // -----------------------------------------------------------
-        // 6. CORRECTION CALENDRIER (QDateEdit Popup)
-        // -----------------------------------------------------------
 
         // Le conteneur global du calendrier
         "QCalendarWidget QWidget { "
