@@ -15,7 +15,7 @@ Développée en **C++** avec le framework **Qt**, elle offre une interface graph
 
 ### 👨‍💼 Espace Administrateur
 - **Tableau de Bord (Dashboard) :** Visualisation des KPI en temps réel (taux d'occupation, statistiques des consultations).
-- **Gestion des Utilisateurs :** Création et gestion des comptes (Médecins, Réceptionnistes) avec gestion des rôles (RBAC).
+- **Gestion des Utilisateurs :** Création et gestion des comptes (Médecins, Réceptionnistes) avec gestion des rôles.
 - **Gestion de l'Infrastructure :** Configuration des services hospitaliers, gestion des chambres et des lits.
 
 ### 👩‍⚕️ Espace Médecin
@@ -35,7 +35,6 @@ Développée en **C++** avec le framework **Qt**, elle offre une interface graph
 
 ## 📸 Aperçu de l'Application
 
-*(Ajoutez ici vos captures d'écran dans le dossier `screenshots` et décommentez les lignes)*
 
 | Dashboard Admin | Agenda Médecin |
 |:---:|:---:|
@@ -48,7 +47,7 @@ Développée en **C++** avec le framework **Qt**, elle offre une interface graph
 ## 🛠️ Stack Technique
 
 * **Langage :** C++17
-* **Interface Graphique :** Qt Framework 6.x (Widgets, Charts, PrintSupport)
+* **Interface Graphique :** Qt Framework 6.10 (Widgets, Charts, PrintSupport)
 * **Base de Données :** PostgreSQL
 * **Système de Build :** CMake 3.16+
 * **Accès aux données :** Module Qt SQL (QSqlDatabase)
