@@ -25,7 +25,6 @@ private slots:
 private:
     Ui::PageMedicalRecord *ui;
 
-    // --- THIS WAS MISSING ---
     void loadHistory(int patientId);
 };
 

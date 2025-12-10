@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
         "   border-bottom: 1px solid #ccc; "
         "}"
         );
-    Database::connect();  // 🔗 Connexion PostgreSQL
+    Database::connect();
     LoginWindow login;
     login.show();
     //AdminDashboard w;

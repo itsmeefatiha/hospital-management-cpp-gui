@@ -40,11 +40,11 @@ private:
     PageServices *pageServices;
     PageRooms *pageRooms;
 
-    // --- FONCTIONS MANQUANTES ---
-    void refreshStats();       // <--- AJOUTÉ
-    void loadRecentActivity(); // <--- AJOUTÉ
+
+    void refreshStats();
+    void loadRecentActivity();
     void setupChart();
-    void setupDoughnutChart();  // <--- AJOUTER CETTE LIGNE
+    void setupDoughnutChart();
 };
 
 #endif // ADMINDASHBOARD_H

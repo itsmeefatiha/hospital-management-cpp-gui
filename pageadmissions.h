@@ -30,7 +30,6 @@ private:
 
     void loadActiveAdmissions();
 
-    // Nouvelle fonction qui prend la date en paramètre
     void dischargePatient(int admissionId, int roomId, QDate exitDate);
 };
 
